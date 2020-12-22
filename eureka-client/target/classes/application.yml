@@ -1,0 +1,29 @@
+server:
+  port: 8763
+
+spring:
+  application:
+    name: eureka-client8763
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver    #mysql驱动包
+    url: jdbc:mysql://localhost:3306/db2019?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    druid:
+      validation-query: SELECT 1  #用来检测连接是否有效的sql，要求是一个查询语句，常用select 'x'
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml #指定mapper映射文件所在的路径
+  type-aliases-package: com.lxy.cloud.entities  # 所有Entity 别名类所在包
+
+eureka:
+  client:
+    # 注册进 Eureka 的服务中心
+    register-with-eureka: true
+    # 检索 服务中心 的其它服务
+    fetch-registry: true
+    service-url:
+      # 设置与 Eureka Server 交互的地址
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+
