@@ -11,6 +11,8 @@
     <module>eureka-server8761</module>
     <module>eureka-server8762</module>
     <module>eureka-client</module>
+      <module>eureka-ribbon-client</module>
+    <module>eureka-feign-client</module>
   </modules>
   <packaging>pom</packaging>
 
